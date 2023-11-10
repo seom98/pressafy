@@ -43,8 +43,8 @@ export const useReviewStore = defineStore("review", () => {
       });
   };
 
-  const updateReview = function () {
-    axios.put(REST_Review_API, review.value).then(() => {
+  const updateReview = function (review, id) {
+    axios.put(`${REST_Review_API}/${id}`, review.value, id).then(() => {
       router.push({ name: "reviewList" });
     });
   };

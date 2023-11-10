@@ -3,9 +3,8 @@
         <h4>게시글 상세</h4>
         <hr>
         <div>{{ store.review.title }}</div>
-        <div>{{ store.review.writer }}</div>
+        <div>{{ store.review.writerId }}</div>
         <div>{{ store.review.regDate }}</div>
-        <div>{{ store.review.viewCnt }}</div>
         <div>{{ store.review.content }}</div>
 
         <a @click="deleteReview">글삭제</a>
@@ -27,7 +26,7 @@ onMounted(() => {
     store.getReview(route.params.id)
 })
 const deleteReview = function () {
-    axios.delete(`http://localhost:8080/api/review/${route.params.id}`)
+    axios.delete(`http://localhost:8080/api-review/review/${route.params.id}`)
         .then(() => {
             router.push({ name: 'reviewList' })
         })

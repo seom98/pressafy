@@ -3,7 +3,7 @@
         <TheHeader :user="user" @logout="logout" />
     </div>
     <div>
-        <RouterView @login-user="loginUser" />
+        <RouterView @login-user="loginUser" @create-user="createUser" />
     </div>
 </template>
 
@@ -53,6 +53,27 @@ const loginUser = (loginUser) => {
         .catch((err) => {
             console.log(err);
             alert("로그인 실패: 서버 에러");
+        });
+};
+
+const createUser = (user) => {
+
+    const API_URL = `http://localhost:8080/api-user/signup`;
+    axios({
+        url: API_URL,
+        method: "POST",
+        params: {
+            id: user.id,
+            password: user.password,
+            name: user.name,
+        },
+    })
+        .then(() => {
+            alert("등록 완료");
+            router.push('/');
+        })
+        .catch((err) => {
+            console.log(err);
         });
 };
 

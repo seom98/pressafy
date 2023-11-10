@@ -19,9 +19,22 @@ export const usevideoStore = defineStore("video", () => {
       videoList.value = response.data;
     });
   };
+  const searchByWord = function (word) {
+    console.log(word);
+    axios({
+      method: "GET",
+      url: REST_video_API,
+      params: {
+        word: word,
+      },
+    }).then((response) => {
+      videoList.value = response.data;
+    });
+  };
 
   return {
     videoList,
     getvideoList,
+    searchByWord,
   };
 });

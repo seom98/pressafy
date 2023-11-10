@@ -1,13 +1,20 @@
 <template>
     <div class="form__div">
-        <input type="text" class="form__input" placeholder=" ">
+        <input id="text" type="text" class="form__input" placeholder=" " v-model="word" @keydown.enter="searchByWord">
         <label for="" class="form__label">검색어를 입력하세요</label>
-        <button class="search-btn">검색</button>
+        <button class="search-btn" @click="searchByWord">검색</button>
     </div>
 </template>
 
 <script setup>
-
+import { usevideoStore } from '@/stores/video';
+import { ref } from "vue";
+const store = usevideoStore();
+const word = ref("");
+const searchByWord = () => {
+    store.searchByWord(word.value)
+    document.getElementById("text").value = ""
+}
 </script>
 <style scoped>
 .search-input {

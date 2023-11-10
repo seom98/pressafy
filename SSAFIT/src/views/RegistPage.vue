@@ -1,30 +1,60 @@
 <template>
     <div class="regist-form">
-        <form action="" class="form">
+        <form action="" class="form" @submit.prevent="onsubmit">
             <h1 class="form__title">regist</h1>
 
             <div class="regist-div">
-                <input type="text" class="regist-input" placeholder=" ">
-                <label for="" class="regist-label">ID</label>
+                <input type="name" class="regist-input" placeholder=" " v-model="name">
+                <label class="regist-label">이름</label>
             </div>
 
             <div class="regist-div">
-                <input type="password" class="regist-input" placeholder=" ">
-                <label for="" class="regist-label">Password</label>
+                <input type="text" class="regist-input" placeholder=" " v-model="id">
+                <label class="regist-label">ID</label>
             </div>
 
             <div class="regist-div">
-                <input type="password" class="regist-input" placeholder=" ">
-                <label for="" class="regist-label">Password확인</label>
+                <input type="password" class="regist-input" placeholder=" " v-model="password">
+                <label class="regist-label">Password</label>
             </div>
 
-            <input type="submit" class="regist-button" value="regist">
+
+
+            <input type="submit" class="regist-button" value="regist" @click="regist">
         </form>
     </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
+const emit = defineEmits(["create-user"]);
+
+const id = ref("");
+const password = ref("");
+const name = ref("");
+
+
+const regist = () => {
+    if (
+        id.value === "" ||
+        password.value === "" ||
+        name.value === ""
+    ) {
+        alert("모든 내용을 입력해주세요");
+        return;
+    }
+
+    const user = {
+        id: id.value,
+        password: password.value,
+        name: name.value,
+    };
+
+    emit("create-user", user);
+};
 </script>
 
 <style scoped>

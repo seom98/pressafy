@@ -46,9 +46,9 @@ const props = defineProps({
 }
 
 .video-list:hover {
-    width: 370px;
-    height: 350px;
-    margin: 5px;
+    width: 380px;
+    height: 360px;
+    margin: 0px;
 }
 
 .video-list-item {
@@ -89,12 +89,14 @@ const props = defineProps({
     font-size: 13px;
 }
 
+
 .item-a {
     height: 50px;
     font-size: 18px;
     cursor: pointer;
     color: #555;
     transition: 0.3s;
+    text-decoration: none;
 }
 
 .item-a:hover {

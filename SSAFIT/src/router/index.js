@@ -50,7 +50,7 @@ const router = createRouter({
           component: ReviewDetail,
         },
         {
-          path: ":url/update",
+          path: ":url/:id/update",
           name: "reviewUpdate",
           component: ReviewUpdate,
         },

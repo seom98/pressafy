@@ -3,6 +3,13 @@
         <div>
             <h2 class="main-h2"><span class="main-h2-span">SSAFIT</span>에 오신 것을 환영합니다.</h2>
         </div>
+        <div class="main-main">
+            <div class="slider">
+                <div class="slide"></div>
+                <div class="slide"></div>
+                <div class="slide"></div>
+            </div>
+        </div>
         <!-- <div>
             조회수 별 들어갈 곳
         </div> -->
@@ -21,13 +28,6 @@
     </div>
     <VideoList />
     <hr />
-    <div class="main-main">
-        <div class="slider">
-            <div class="slide"></div>
-            <div class="slide"></div>
-            <div class="slide"></div>
-        </div>
-    </div>
 </template>
 
 <script setup>
@@ -42,7 +42,7 @@ onMounted(() => {
 })
 const part = ref('none')
 const orderBy = ref('viewCnt')
-const isClick = ref([ref(false), ref(false), ref(false), ref(false), ref(false)])
+const isClick = ref([ref(true), ref(false), ref(false), ref(false), ref(false)])
 
 const store = usevideoStore()
 
@@ -64,7 +64,7 @@ const changePart = function (newPart, a) {
 <style scoped>
 .main-main {
     margin: 0 auto;
-    width: 1150px;
+    width: 1172px;
 }
 
 .main-h2 {
@@ -82,6 +82,7 @@ const changePart = function (newPart, a) {
     height: 270px;
     border: solid #ccc;
     border-radius: 10px;
+    margin-bottom: 33px;
 }
 
 .slide {

@@ -1,6 +1,11 @@
 <template>
     <div>
-
+        <div>
+            <iframe class="video-list-item" width="360px" height="240px"
+                :src='`https://www.youtube.com/embed/${route.params.url}`' title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        </div>
         <h4>리뷰 목록</h4>
         <hr />
         <table>
@@ -8,7 +13,6 @@
                 <th>번호</th>
                 <th>제목</th>
                 <th>쓰니</th>
-                <th>조회수</th>
                 <th>등록</th>
             </tr>
             <tr v-for="review in store.reviewList" :key="review.id">
@@ -16,9 +20,8 @@
                 <td>
                     <RouterLink :to="`/review/${route.params.url}/${review.id}`">{{ review.title }}</RouterLink>
                 </td>
-                <td>{{ review.writer }}</td>
-                <td>{{ review.viewCnt }}</td>
-                <td>{{ review.regeDate }}</td>
+                <td>{{ review.writerId }}</td>
+                <td>{{ review.regDate }}</td>
             </tr>
         </table>
         <!-- <ReviewCreate /> -->

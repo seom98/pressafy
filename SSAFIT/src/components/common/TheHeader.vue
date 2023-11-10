@@ -1,15 +1,17 @@
 <template>
     <div class="header">
-        <RouterLink class="main-link" :to="{ name: 'main' }">SSAFIT</RouterLink>
+        <RouterLink class="main-link" :to="{ name: 'main' }" :class="{ click: isClick[0].value }" @click="togggle(3)">SSAFIT
+        </RouterLink>
         <SearchComp class="SearchComp-link" />
         <div class="log-reg">
-            <RouterLink class="my-link" :class="{ click: isClick1 }" :to="{ name: 'my' }" v-if="getUser"
-                @click="isClick1 = !isClick1">my</RouterLink>
+            <RouterLink class="my-link" :class="{ click: isClick[0].value }" :to="{ name: 'my' }" v-if="getUser"
+                @click="togggle(0)">my</RouterLink>
             <a href="#" class="my-link" v-if="getUser" @click="logout">logout</a>
-            <RouterLink class="login-link" :class="{ click: isClick2 }" :to="{ name: 'login' }" v-else
-                @click="isClick2 = !isClick2">login</RouterLink>
-            <RouterLink class="regist-link" :class="{ click: isClick3 }" :to="{ name: 'regist' }" v-if="!getUser"
-                @click="isClick3 = !isClick3">regist</RouterLink>
+            <RouterLink class="login-link" :class="{ click: isClick[1].value }" :to="{ name: 'login' }" v-else
+                @click="togggle(1)">
+                login</RouterLink>
+            <RouterLink class="regist-link" :class="{ click: isClick[2].value }" :to="{ name: 'regist' }" v-if="!getUser"
+                @click="togggle(2)">regist</RouterLink>
         </div>
     </div>
 </template>
@@ -26,10 +28,21 @@ const getUser = computed(() => !!props.user);
 const logout = () => {
     emits("logout");
 };
+const isClick = ref([ref(false), ref(false), ref(false), ref(false)])
 
-const isClick1 = ref(false);
-const isClick2 = ref(false);
-const isClick3 = ref(false);
+const togggle = function (a) {
+    console.log(isClick.value[a].value)
+    for (let i = 0; i < 4; i++) {
+        if (i == a) {
+            isClick.value[i].value = true
+        } else {
+            isClick.value[i].value = false
+        }
+    }
+    if (a == 3) {
+        window.location.href = "http://localhost:5173/"
+    }
+}
 
 
 
