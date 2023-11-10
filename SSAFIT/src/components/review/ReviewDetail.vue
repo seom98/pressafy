@@ -8,8 +8,8 @@
         <div>{{ store.review.viewCnt }}</div>
         <div>{{ store.review.content }}</div>
 
-        <button @click="deleteReview">삭제</button>
-        <button @click="updateReview">수정</button>
+        <a @click="deleteReview">글삭제</a>
+        <RouterLink :to="{ name: 'reviewUpdate' }">글수정</RouterLink>
     </div>
 </template>
 

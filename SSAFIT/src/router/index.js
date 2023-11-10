@@ -38,23 +38,21 @@ const router = createRouter({
           path: ":url",
           name: "reviewList",
           component: ReviewList,
-          children: [
-            {
-              path: "create",
-              name: "reviewCreate",
-              component: ReviewCreate,
-            },
-            {
-              path: ":id",
-              name: "reviewDetail",
-              component: ReviewDetail,
-            },
-            {
-              path: "update",
-              name: "reviewUpdate",
-              component: ReviewUpdate,
-            },
-          ],
+        },
+        {
+          path: ":url/create",
+          name: "reviewCreate",
+          component: ReviewCreate,
+        },
+        {
+          path: ":url/:id",
+          name: "reviewDetail",
+          component: ReviewDetail,
+        },
+        {
+          path: ":url/update",
+          name: "reviewUpdate",
+          component: ReviewUpdate,
         },
       ],
     },

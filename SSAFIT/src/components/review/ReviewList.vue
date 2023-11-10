@@ -21,8 +21,9 @@
                 <td>{{ review.regeDate }}</td>
             </tr>
         </table>
-        <ReviewCreate />
+        <!-- <ReviewCreate /> -->
         <ReviewSearchInput />
+        <RouterLink :to="{ name: 'reviewCreate' }">글작성</RouterLink>
     </div>
 </template>
 
@@ -31,7 +32,6 @@ import { useReviewStore } from "@/stores/review";
 import { useRoute } from "vue-router";
 import { onMounted } from "vue";
 import ReviewSearchInput from "./ReviewSearchInput.vue";
-import ReviewCreate from "./ReviewCreate.vue";
 const store = useReviewStore();
 
 defineProps({

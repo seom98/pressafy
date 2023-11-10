@@ -7,11 +7,16 @@
             조회수 별 들어갈 곳
         </div> -->
         <div>
-            <input type="button" class="search-btn" value="전체" @click="changePart('none')" />
-            <input type="button" class="search-btn" value="하체" @click="changePart('하체')" />
-            <input type="button" class="search-btn" value="상체" @click="changePart('상체')" />
-            <input type="button" class="search-btn" value="복부" @click="changePart('복부')" />
-            <input type="button" class="search-btn" value="전신" @click="changePart('전신')" />
+            <input type="button" class="search-btn" :class="{ click: isClick[0].value }" value="전체"
+                @click="changePart('none', 0)" />
+            <input type="button" class="search-btn" :class="{ click: isClick[1].value }" value="하체"
+                @click="changePart('하체', 1)" />
+            <input type="button" class="search-btn" :class="{ click: isClick[2].value }" value="상체"
+                @click="changePart('상체', 2)" />
+            <input type="button" class="search-btn" :class="{ click: isClick[3].value }" value="복부"
+                @click="changePart('복부', 3)" />
+            <input type="button" class="search-btn" :class="{ click: isClick[4].value }" value="전신"
+                @click="changePart('전신', 4)" />
         </div>
     </div>
     <VideoList />
@@ -37,11 +42,21 @@ onMounted(() => {
 })
 const part = ref('none')
 const orderBy = ref('viewCnt')
+const isClick = ref([ref(false), ref(false), ref(false), ref(false), ref(false)])
 
 const store = usevideoStore()
 
 
-const changePart = function (newPart) {
+
+const changePart = function (newPart, a) {
+    console.log(isClick.value[a].value)
+    for (let i = 0; i < 5; i++) {
+        if (i == a) {
+            isClick.value[i].value = true
+        } else {
+            isClick.value[i].value = false
+        }
+    }
     part.value = newPart
     store.getvideoList(part.value, orderBy.value)
 }
@@ -134,6 +149,15 @@ const changePart = function (newPart) {
 }
 
 .search-btn:hover {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 60px;
+    height: 40px;
+    background-color: rgb(55, 182, 140);
+    border: solid 2px rgb(55, 182, 140);
+}
+
+.click {
     margin-top: 0px;
     margin-bottom: 0px;
     width: 60px;

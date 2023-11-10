@@ -4,21 +4,36 @@
             <h1 class="form__title">login</h1>
 
             <div class="login-div">
-                <input type="text" class="login-input" placeholder=" ">
+                <input type="text" class="login-input" placeholder=" " v-model="id">
                 <label for="" class="login-label">ID</label>
             </div>
 
             <div class="login-div">
-                <input type="password" class="login-input" placeholder=" ">
+                <input type="password" class="login-input" placeholder=" " v-model="password">
                 <label for="" class="login-label">Password</label>
             </div>
 
-            <input type="submit" class="login-button" value="login">
+            <input type="submit" class="login-button" value="login" @click.prevent="login">
+            <!-- <button class="login-button" @click="login">login</button> -->
         </form>
     </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
+
+const id = ref("");
+const password = ref("");
+
+const emit = defineEmits(["login-user"]);
+
+const login = () => {
+    let user = {
+        id: id.value,
+        password: password.value,
+    };
+    emit("login-user", user);
+};
 
 </script>
 
