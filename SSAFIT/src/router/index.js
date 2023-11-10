@@ -1,5 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 import MainPage from "../views/MainPage.vue";
+import ReviewPage from "../views/ReviewPage.vue";
+import ReviewList from "../components/review/ReviewList.vue";
+import ReviewCreate from "../components/review/ReviewCreate.vue";
+import ReviewDetail from "../components/review/ReviewDetail.vue";
+import ReviewUpdate from "../components/review/ReviewUpdate.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,33 +29,35 @@ const router = createRouter({
       name: "my",
       component: () => import("../views/MyPage.vue"),
     },
-    /* {
-      path: '/board',
-      name: 'board',
-      component: BoardView,
+    {
+      path: "/review",
+      name: "review",
+      component: ReviewPage,
       children: [
         {
-          path: "",
-          name: "boardList",
-          component: BoardList
+          path: ":url",
+          name: "reviewList",
+          component: ReviewList,
+          children: [
+            {
+              path: "create",
+              name: "reviewCreate",
+              component: ReviewCreate,
+            },
+            {
+              path: ":id",
+              name: "reviewDetail",
+              component: ReviewDetail,
+            },
+            {
+              path: "update",
+              name: "reviewUpdate",
+              component: ReviewUpdate,
+            },
+          ],
         },
-        {
-          path: "create",
-          name: "boardCreate",
-          component: BoardCreate
-        },
-        {
-          path: ":id",
-          name: "boardDetail",
-          component: BoardDetail
-        },
-        {
-          path: "update",
-          name: "boardUpdate",
-          component: BoardUpdate
-        },
-      ]
-    }, */
+      ],
+    },
   ],
 });
 

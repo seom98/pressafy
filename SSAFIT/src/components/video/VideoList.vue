@@ -27,7 +27,7 @@ onMounted(() => {
 }
 
 .video-list {
-    width: 1170px;
+    width: 1180px;
     margin: 10px auto;
 }
 

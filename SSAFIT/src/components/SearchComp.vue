@@ -1,22 +1,13 @@
 <template>
     <div class="form__div">
-        <input type="text" class="form__input" placeholder=" " v-model="keyword">
+        <input type="text" class="form__input" placeholder=" ">
         <label for="" class="form__label">검색어를 입력하세요</label>
-        <button class="search-btn" @click="search">검색</button>
+        <button class="search-btn">검색</button>
     </div>
 </template>
 
 <script setup>
-import { useYoutubeStore } from '@/stores/youtube'
-import { ref } from 'vue'
-const keyword = ref('')
 
-const store = useYoutubeStore()
-
-// @keydown="search"
-const search = function () {
-    store.youtubeSearch(keyword.value)
-}
 </script>
 <style scoped>
 .search-input {

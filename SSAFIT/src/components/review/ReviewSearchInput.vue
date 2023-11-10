@@ -30,24 +30,24 @@
             </select>
         </div>
         <div>
-            <button @click="searchBoardList">검색</button>
+            <button @click="searchReviewList">검색</button>
         </div>
     </div>
 </template>
   
 <script setup>
 import { ref } from 'vue';
-import { useBoardStore } from '@/stores/board'
+import { useReviewStore } from '@/stores/review'
 
-const store = useBoardStore()
+const store = useReviewStore()
 const searchInfo = ref({
     key: 'none',
     word: '',
     orderBy: 'none',
     orderByDir: 'asc'
 })
-const searchBoardList = function () {
-    store.searchBoardList(searchInfo.value)
+const searchReviewList = function () {
+    store.searchReviewList(searchInfo.value)
 }
 </script>
   

@@ -3,13 +3,13 @@ import { defineStore } from "pinia";
 import router from "@/router";
 import axios from "axios";
 
-const REST_Review_API = `http://localhost:8080/api-review`;
+const REST_Review_API = `http://localhost:8080/api-review/review`;
 
 export const useReviewStore = defineStore("review", () => {
   const reviewList = ref([]);
-  const getReviewList = function () {
-    axios.get(REST_Review_API).then((response) => {
-      ReviewList.value = response.data;
+  const getReviewList = function (videourl) {
+    axios.get(`${REST_Review_API}/list/${videourl}`).then((response) => {
+      reviewList.value = response.data;
     });
   };
 
@@ -23,6 +23,7 @@ export const useReviewStore = defineStore("review", () => {
 
   //게시글 등록
   const createReview = function (review) {
+    console.log(review);
     axios({
       url: REST_Review_API,
       method: "POST",

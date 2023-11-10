@@ -17,9 +17,6 @@
     <VideoList />
     <hr />
     <div class="main-main">
-        <div>
-            <YoutubeVideoList />
-        </div>
         <div class="slider">
             <div class="slide"></div>
             <div class="slide"></div>

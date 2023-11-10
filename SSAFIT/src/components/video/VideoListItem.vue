@@ -6,7 +6,8 @@
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             <div class="video-list-f">
-                <a class="item-a">{{ video.title }}</a>
+                <RouterLink :to="`/review/${video.url}`" class="item-a" :url="video.url">{{ video.title }}</RouterLink>
+                <!-- <a :to="{ name: 'my' }" class="item-a">{{ video.title }}</a> -->
                 <div class="video-list-pcv">
                     <button class="search-btn">{{ video.part }}</button>
                     <div class="video-list-cv">
