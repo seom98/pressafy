@@ -55,7 +55,8 @@ const togggle = function (a) {
 }
 
 .header {
-    padding: 20px;
+    width: 100%;
+    padding: 5px 0px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -142,6 +143,7 @@ const togggle = function (a) {
 .login-link,
 .regist-link,
 .my-link {
+    font-weight: 600;
     transition: 0.2s;
 }
 
@@ -149,12 +151,12 @@ const togggle = function (a) {
 .regist-link:hover,
 .my-link:hover {
     color: rgb(55, 182, 140);
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color: #555;
     font-size: 20px;
 }
 </style>

@@ -1,9 +1,11 @@
 <template>
-    <div>
-        <TheHeader :user="user" @logout="logout" />
-    </div>
-    <div>
-        <RouterView @login-user="loginUser" @create-user="createUser" />
+    <div class="bo">
+        <div class="he">
+            <TheHeader :user="user" @logout="logout" />
+        </div>
+        <div class="ma">
+            <RouterView @login-user="loginUser" @create-user="createUser" />
+        </div>
     </div>
 </template>
 
@@ -78,5 +80,20 @@ const createUser = (user) => {
 };
 
 </script>
-<style scoped></style>
+<style scoped>
+.he {
+    height: 78px;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.ma {
+    padding-top: 100px;
+    z-index: -10;
+}
+</style>
 

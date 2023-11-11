@@ -6,8 +6,8 @@
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             <div class="video-list-f">
-                <RouterLink :to="`/review/${video.url}`" class="item-a" :url="video.url">{{ video.title }}</RouterLink>
-                <!-- <a :to="{ name: 'my' }" class="item-a">{{ video.title }}</a> -->
+                <RouterLink :to="`/review/${video.url}`" class="item-a">{{ video.title
+                }}</RouterLink>
                 <div class="video-list-pcv">
                     <button class="search-btn">{{ video.part }}</button>
                     <div class="video-list-cv">
@@ -17,13 +17,10 @@
                 </div>
             </div>
         </div>
-        <!-- <img :src="video.url"> -->
     </li>
 </template>
 
 <script setup>
-import { usevideoStore } from '@/stores/video';
-const store = usevideoStore();
 
 const props = defineProps({
     video: {

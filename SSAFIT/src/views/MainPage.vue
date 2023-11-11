@@ -91,24 +91,24 @@ const changePart = function (newPart, a) {
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: auto;
+    background-size: cover;
     background-position: center;
     background-repeat: repeat;
     animation: slider 7.5s infinite linear;
 }
 
 .slide:nth-child(1) {
-    background-image: url("../assets/img1.jpg");
+    background-image: url("../assets/무제-1.png");
     animation-delay: 0;
 }
 
 .slide:nth-child(2) {
-    background-image: url("../assets/img2.jpeg");
+    background-image: url("../assets/무제-2.png");
     animation-delay: -2.5s;
 }
 
 .slide:nth-child(3) {
-    background-image: url("../assets/img3.png");
+    background-image: url("../assets/무제-3.png");
     animation-delay: -5s;
 }
 

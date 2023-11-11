@@ -1,6 +1,5 @@
 <template>
-    <div>
-        <h2>ReviewPage</h2>
+    <div class="review">
         <RouterView :url="url" />
     </div>
 </template>
@@ -11,4 +10,9 @@ defineProps({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.review {
+    margin: 0 auto;
+    width: 1150px;
+}
+</style>
